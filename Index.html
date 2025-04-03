@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛧ Collar del Ojo Omnisciente ⛧</title>
+    <style>
+        :root {
+            --sangre: #8b0000;
+            --sombra: #2a0000;
+            --oro-maldito: #daa520;
+        }
+
+        body {
+            background: #000;
+            color: #c5a020;
+            font-family: 'Old English Text MT', serif;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5V8Zcd6QIOviZz0q7E0k9G4J4J1kYEXE4kMQUUDVBDEWgBSIKAoi4BqJ4BqC4BuC4BqC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BuC4BvC8wDXvgL8BH4w4gAAAABJRU5ErkJggg=='), auto;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid var(--sangre);
+            position: relative;
+        }
+
+        .ojo-container {
+            width: 250px;
+            height: 250px;
+            margin: 30px auto;
+            position: relative;
+            animation: latido 5s infinite;
+        }
+
+        .ojo {
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 40%, 
+                    #1a0000 0%, 
+                    #000 70%),
+                repeating-conic-gradient(
+                    from 0deg,
+                    var(--sombra) 0deg 10deg,
+                    var(--sangre) 10deg 20deg
+                );
+            border-radius: 50%;
+            border: 3px solid var(--oro-maldito);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pupila {
+            width: 50px;
+            height: 50px;
+            background: var(--sangre);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s;
+            box-shadow: 0 0 30px var(--sangre);
+        }
+
+        .pupila::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            filter: blur(2px);
+        }
+
+        .precio {
+            font-size: 3em;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--oro-maldito);
+            text-shadow: 0 0 15px var(--sangre);
+        }
+
+        .reglas {
+            background: rgba(26, 0, 0, 0.7);
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 5px solid var(--sangre);
+        }
+
+        .maldicion-form {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px dashed var(--sangre);
+        }
+
+        .btn-maldicion {
+            background: linear-gradient(45deg, #2a0000, #8b0000);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .btn-maldicion::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 20%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 80%
+            );
+            animation: brillo 3s infinite;
+        }
+
+        @keyframes latido {
+            0%, 100% { transform: scale(0.95); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes brillo {
+            from { transform: translateX(-100%) rotate(45deg); }
+            to { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @media (max-width: 480px) {
+            .ojo-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .precio {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>⛧ COLLAR DEL OJO OMNISCIENTE ⛧</h1>
+        
+        <div class="ojo-container">
+            <div class="ojo" id="ojo">
+                <div class="pupila" id="pupila"></div>
+            </div>
+        </div>
+        
+        <div class="precio">$1,666</div>
+
+        <div class="reglas">
+            <h3>⛧ REGLAS DE POSESIÓN ⛧</h3>
+            <p>✠ Prohibido fotografiar o describir su verdadera forma</p>
+            <p>✠ Si el ojo parpadea: Recitar el Salmo 23 en latín inmediatamente</p>
+            <p>✠ Durante eclipses: Sumergir en agua bendita mezclada con sal negra</p>
+            <p>✠ Si atrae insectos: Quemar incienso de mirra cada 3 horas</p>
+        </div>
+
+        <div class="maldicion-form">
+            <input type="text" 
+                   placeholder="Nombre completo del objetivo" 
+                   id="objetivo"
+                   style="width:100%; padding:12px; margin:10px 0; background:#1a0000; border:1px solid var(--sangre); color:white; text-align:center;">
+            <button class="btn-maldicion" onclick="activarMaldicion()">
+                ⛧ INVOCAR MALDICIÓN PRIMORDIAL ⛧
+            </button>
+        </div>
+
+        <div class="disclaimer">
+            ⚠ ADVERTENCIA: El vendedor no se responsabiliza de muertes súbitas, 
+            posesiones demoníacas, desapariciones o efectos colaterales. 
+            Toda maldición invocada tendrá un 33% de probabilidad de rebote hacia el invocador.
+        </div>
+    </div>
+
+    <script>
+        // Movimiento ocular siniestro
+        const ojo = document.getElementById('ojo');
+        const pupila = document.getElementById('pupila');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = ojo.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const posX = (x - 125) / 25;
+            const posY = (y - 125) / 25;
+            
+            pupila.style.transform = `translate(${posX}px, ${posY}px)`;
+        });
+
+        // Parpadeo aleatorio
+        setInterval(() => {
+            if(Math.random() < 0.2) {
+                ojo.style.height = '5px';
+                setTimeout(() => ojo.style.height = '250px', 50);
+            }
+        }, 3000);
+
+        // Sistema de maldiciones
+        function activarMaldicion() {
+            const objetivo = document.getElementById('objetivo').value.trim();
+            if(!objetivo) {
+                alert("¡DEBES INGRESAR UN NOMBRE PARA EL RITUAL!");
+                return;
+            }
+
+            if(confirm(`¿CONFIRMAS LA MALDICIÓN ETERNA SOBRE ${objetivo.toUpperCase()}?`)) {
+                const mensaje = `Invocar%20maldición%20sobre%20${encodeURIComponent(objetivo)}%20con%20el%20Collar%20del%20Ojo%20Omnisciente.%20Acepto%20el%20riesgo%20de%20rebote%20demoníaco.`;
+                window.open(`https://wa.me/+15756313857?text=${mensaje}`, '_blank');
+                
+                // Efecto de sangre
+                document.body.style.backgroundColor = "#300000";
+                setTimeout(() => {
+                    document.body.style.backgroundColor = "#000";
+                }, 1000);
+            }
+        }
+
+        // Protección contra fotos
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'PrintScreen') {
+                alert("¡LA CAPTURA DE PANTALLA ACTIVARÁ LA MALDICIÓN!");
+                document.body.style.filter = 'hue-rotate(180deg)';
+                setTimeout(() => document.body.style.filter = '', 1000);
+            }
+        });
+    </script>
+</body>
+</html>
